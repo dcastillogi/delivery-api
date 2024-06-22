@@ -1,4 +1,4 @@
-{
+export const CITIES = {
 	"5001": {
 		"name": "Medellín",
 		"category": "N",

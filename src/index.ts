@@ -1,11 +1,13 @@
-const RECOMMENDED_PRICE = {
-	N: 14500,
-	DA: 22500,
-	L: 7000,
+import { CITIES } from "./lib/const";
+
+const RECOMMENDED_PRICE: { [key: string]: number } = {
+    N: 14500,
+    DA: 22500,
+    L: 7000,
 }; // Based on "Interrapidisimo" prices
 
 type City = {
-	category: 'N' | 'DA' | 'L';
+	category: string;
 	name: string;
 	department: string;
 };
@@ -15,10 +17,7 @@ type CityMap = {
 };
 
 const getData = async (): Promise<CityMap> => {
-	const response = await fetch(
-		'https://raw.githubusercontent.com/dcastillogi/delivery-api/3eb07993282af513bfd471310284c3a634b8bc86/data/data.json'
-	);
-	return response.json() as Promise<CityMap>;
+    return CITIES;
 };
 
 export default {

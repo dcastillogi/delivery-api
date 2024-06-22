@@ -7,6 +7,7 @@ Retrieve delivery estimates for specified locations according to the Interrapidi
 - `DA`: Dificil Acesso
 - `N`: Nacional
 - `L`: Local
+- `R`: Regional
 
 ## Request Example
 

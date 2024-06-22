@@ -1,9 +1,10 @@
-import { CITIES } from "./lib/const";
+import { CITIES } from './lib/const';
 
 const RECOMMENDED_PRICE: { [key: string]: number } = {
-    N: 14500,
-    DA: 22500,
-    L: 7000,
+	N: 14500,
+	DA: 22500,
+	L: 7000,
+	R: 9000,
 }; // Based on "Interrapidisimo" prices
 
 type City = {
@@ -17,7 +18,7 @@ type CityMap = {
 };
 
 const getData = async (): Promise<CityMap> => {
-    return CITIES;
+	return CITIES;
 };
 
 export default {
@@ -42,6 +43,12 @@ export default {
 
 		const originCity = cities[origin];
 		const destinationCity = cities[destination];
+
+		if (originCity.department == destinationCity.department) {
+			if (originCity.category === 'N' && destinationCity.category === 'N') {
+				return Response.json({ price: RECOMMENDED_PRICE['R'], deliveryType: 'R' });
+			}
+		}
 
 		const price = Math.max(RECOMMENDED_PRICE[originCity.category], RECOMMENDED_PRICE[destinationCity.category]);
 		const deliveryType = price === RECOMMENDED_PRICE['N'] ? 'N' : 'DA';

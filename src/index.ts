@@ -1,10 +1,10 @@
 import { CITIES } from './lib/const';
 
 const RECOMMENDED_PRICE: { [key: string]: number } = {
-	N: 14500,
-	DA: 22500,
-	L: 7000,
-	R: 9000,
+	N: 16000,
+	DA: 24500,
+	L: 7500,
+	R: 9500,
 }; // Based on "Interrapidisimo" prices
 
 type City = {
